@@ -1,8 +1,8 @@
 const STATUS_STYLES = {
-  Applied: { bg: '#1e3a5f', color: '#60a5fa', border: '#2563eb' },
-  Interviewing: { bg: '#3b2d00', color: '#fbbf24', border: '#d97706' },
-  Offer: { bg: '#0d3320', color: '#34d399', border: '#059669' },
-  Rejected: { bg: '#3b0f0f', color: '#f87171', border: '#dc2626' },
+  Applied:      { bg: '#eff6ff', color: '#1d4ed8', border: '#bfdbfe' },
+  Interviewing: { bg: '#fffbeb', color: '#b45309', border: '#fde68a' },
+  Offer:        { bg: '#f0fdf4', color: '#15803d', border: '#bbf7d0' },
+  Rejected:     { bg: '#fef2f2', color: '#b91c1c', border: '#fecaca' },
 }
 
 export default function StatusBadge({ status }) {
@@ -17,7 +17,8 @@ export default function StatusBadge({ status }) {
         borderRadius: '999px',
         fontSize: '0.75rem',
         fontWeight: 600,
-        letterSpacing: '0.03em',
+        letterSpacing: '0.02em',
+        whiteSpace: 'nowrap',
       }}
     >
       {status}
