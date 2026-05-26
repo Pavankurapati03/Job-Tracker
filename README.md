@@ -4,42 +4,15 @@ A full-stack job application tracker built with **React + Vite** (frontend) and 
 
 ---
 
-## Phase 2 — Database & Auth Setup
-
 ### Prerequisites
 - Python 3.9+
 - Node.js 18+
 - npm
 - **MongoDB Atlas** account (or local MongoDB)
 
----
-
-## Backend (FastAPI)
-
-```bash
-cd backend
-python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# macOS/Linux
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Set up your environment variables
-cp .env.example .env
-# Edit .env and add your MONGO_URI and JWT_SECRET
-
 # Run the server
 uvicorn main:app --reload
 ```
-
-Backend runs on: http://localhost:8000  
-Swagger docs: http://localhost:8000/docs
-
 ---
 
 ## Frontend (React + Vite)
@@ -49,8 +22,6 @@ cd frontend
 npm install
 npm run dev
 ```
-
-Frontend runs on: http://localhost:5173
 
 ---
 
