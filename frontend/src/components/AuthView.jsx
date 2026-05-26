@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import logo from '../assets/logo.png'
 import { useToast } from '../context/ToastContext'
+import { loginUser, registerUser } from '../api/jobsApi'
 
 export default function AuthView({ onAuthSuccess }) {
   const { success } = useToast()
@@ -40,13 +41,10 @@ export default function AuthView({ onAuthSuccess }) {
 
     try {
       if (isLogin) {
-        // Import loginUser from API layer dynamically or call it directly
-        const { loginUser } = await import('../api/jobsApi')
         const res = await loginUser({ username, password })
         const token = res.data.access_token
         onAuthSuccess(token)
       } else {
-        const { registerUser } = await import('../api/jobsApi')
         await registerUser({ username, email, password })
         success('Registration successful! Please login with your credentials.', 6000)
         setIsLogin(true)
