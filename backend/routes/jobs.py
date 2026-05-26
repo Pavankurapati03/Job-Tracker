@@ -21,7 +21,7 @@ async def get_all_jobs(current_user: User = Depends(get_current_user)):
 @router.post("", response_model=Job, status_code=201)
 async def create_job(payload: JobCreate, current_user: User = Depends(get_current_user)):
     """Create a new job application for the logged-in user."""
-    job_dict = payload.dict()
+    job_dict = payload.model_dump()
     job_dict["user_id"] = current_user.id
     job_dict["_id"] = str(uuid.uuid4())
     
@@ -35,7 +35,7 @@ async def create_job(payload: JobCreate, current_user: User = Depends(get_curren
             time=dt.strftime("%H:%M"),
             note="Initial Interview scheduled from application form"
         )
-        job_dict["events"].append(new_event.dict())
+        job_dict["events"].append(new_event.model_dump())
         
     await jobs_collection.insert_one(prepare_for_mongodb(job_dict))
     return Job(**serialize_doc(job_dict))
@@ -57,7 +57,7 @@ async def update_job(job_id: str, payload: JobUpdate, current_user: User = Depen
     if not existing_job:
         raise HTTPException(status_code=404, detail="Job not found")
 
-    updated_data = payload.dict(exclude_unset=True)
+    updated_data = payload.model_dump(exclude_unset=True)
 
     # Auto-sync interview_datetime update
     if "interview_datetime" in updated_data:
@@ -85,7 +85,7 @@ async def update_job(job_id: str, payload: JobUpdate, current_user: User = Depen
         else:
             events = [e for e in events if not (e.type == EventType.interview and e.note == "Initial Interview scheduled from application form")]
 
-        updated_data["events"] = [e.dict() for e in events]
+        updated_data["events"] = [e.model_dump() for e in events]
 
     if updated_data:
         await jobs_collection.update_one(
@@ -113,7 +113,7 @@ async def add_job_event(job_id: str, event: Event, current_user: User = Depends(
         raise HTTPException(status_code=404, detail="Job not found")
     
     events = job_doc.get("events", [])
-    events.append(event.dict())
+    events.append(event.model_dump())
     
     await jobs_collection.update_one(
         {"_id": job_id, "user_id": current_user.id},

@@ -132,5 +132,5 @@ class Job(JobCreate):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
 
     class Config:
-        orm_mode = True
-        allow_population_by_field_name = True
+        from_attributes = True
+        populate_by_name = True
