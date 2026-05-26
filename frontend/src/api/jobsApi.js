@@ -1,6 +1,11 @@
 import axios from 'axios'
 
-const API = import.meta.env.VITE_API_URL || '/api'
+let API = import.meta.env.VITE_API_URL || '/api'
+// Automatically handle if VITE_API_URL is provided without the "/api" suffix
+if (API !== '/api' && !API.endsWith('/api')) {
+  const cleanBase = API.endsWith('/') ? API.slice(0, -1) : API
+  API = `${cleanBase}/api`
+}
 
 const api = axios.create({
   baseURL: API,
