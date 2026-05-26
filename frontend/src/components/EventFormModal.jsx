@@ -31,7 +31,7 @@ export default function EventFormModal({ jobs = [], onClose, onSubmit }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '480px' }}>
         <div className="modal-header">
-          <h2>📅 Add Calendar Event</h2>
+          <h2>Add Calendar Event</h2>
           <button id="close-event-modal-btn" className="modal-close" onClick={onClose}>×</button>
         </div>
 

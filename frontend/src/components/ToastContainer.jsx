@@ -1,10 +1,10 @@
 import { useToast } from '../context/ToastContext';
 
 const ICONS = {
-  success: '✅',
-  error: '❌',
-  info: 'ℹ️',
-  warning: '⚠️'
+  success: '✓',
+  error: '✕',
+  info: 'i',
+  warning: '!'
 };
 
 export default function ToastContainer() {

@@ -3,9 +3,9 @@ import logo from '../assets/logo.png'
 
 export default function Sidebar({ user, onLogout }) {
   const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: '📊' },
-    { id: 'calendar', label: 'Calendar', icon: '📅' },
-    { id: 'settings', label: 'Settings', icon: '⚙️' },
+    { id: 'dashboard', label: 'Dashboard' },
+    { id: 'calendar', label: 'Calendar' },
+    { id: 'settings', label: 'Settings' },
   ]
 
   return (
@@ -51,7 +51,7 @@ export default function Sidebar({ user, onLogout }) {
           </div>
         </div>
         {onLogout && (
-          <button 
+          <button
             id="logout-btn"
             onClick={onLogout}
             style={{
@@ -71,16 +71,16 @@ export default function Sidebar({ user, onLogout }) {
               transition: 'all 0.15s ease',
               fontFamily: 'inherit'
             }}
-            onMouseOver={(e) => { 
-              e.currentTarget.style.background = '#fee2e2'; 
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = '#fee2e2';
               e.currentTarget.style.borderColor = '#fca5a5';
             }}
-            onMouseOut={(e) => { 
-              e.currentTarget.style.background = '#fef2f2'; 
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = '#fef2f2';
               e.currentTarget.style.borderColor = '#fecaca';
             }}
           >
-            🚪 Logout
+            Logout
           </button>
         )}
       </div>

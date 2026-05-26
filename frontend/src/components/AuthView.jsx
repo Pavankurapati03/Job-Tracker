@@ -92,7 +92,7 @@ export default function AuthView({ onAuthSuccess }) {
         {/* Error alert */}
         {error && (
           <div style={styles.errorAlert}>
-            ⚠️ {error}
+            {error}
           </div>
         )}
 

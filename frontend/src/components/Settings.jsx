@@ -135,7 +135,6 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
       {/* ── Theme Toggle ── */}
       <div className="settings-card">
         <div className="settings-card-header">
-          <div className="settings-card-icon">A</div>
           <div>
             <h3>Appearance</h3>
             <p className="settings-card-desc">Customize the look and feel of the app</p>
@@ -145,9 +144,9 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
           <div className="theme-toggle-row">
             <div className="theme-info">
               <span className="theme-label">Theme</span>
-              <span className="theme-current">{theme === 'dark' ? '🌙 Dark Mode' : '☀️ Light Mode'}</span>
+              <span className="theme-current">{theme === 'dark' ? 'Dark Mode' : 'Light Mode'}</span>
             </div>
-            <button 
+            <button
               className={`theme-switch ${theme === 'dark' ? 'theme-switch--active' : ''}`}
               onClick={toggleTheme}
               aria-label="Toggle theme"
@@ -161,7 +160,6 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
       {/* ── Profile ── */}
       <div className="settings-card">
         <div className="settings-card-header">
-          <div className="settings-card-icon">P</div>
           <div>
             <h3>Profile</h3>
             <p className="settings-card-desc">Update your username and email address</p>
@@ -172,20 +170,20 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
             <div className="settings-form-row">
               <div className="form-group">
                 <label htmlFor="settings-username">Username</label>
-                <input 
+                <input
                   id="settings-username"
-                  type="text" 
-                  value={username} 
+                  type="text"
+                  value={username}
                   onChange={e => setUsername(e.target.value)}
                   placeholder="Username"
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="settings-email">Email</label>
-                <input 
+                <input
                   id="settings-email"
-                  type="email" 
-                  value={email} 
+                  type="email"
+                  value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="Email"
                 />
@@ -193,10 +191,10 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
             </div>
             <div className="form-group">
               <label htmlFor="settings-profile-pw">Current Password <span className="required-star">*</span></label>
-              <input 
+              <input
                 id="settings-profile-pw"
-                type="password" 
-                value={profilePassword} 
+                type="password"
+                value={profilePassword}
                 onChange={e => setProfilePassword(e.target.value)}
                 placeholder="Enter current password to confirm"
               />
@@ -213,7 +211,6 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
       {/* ── Change Password ── */}
       <div className="settings-card">
         <div className="settings-card-header">
-          <div className="settings-card-icon">S</div>
           <div>
             <h3>Change Password</h3>
             <p className="settings-card-desc">Update your password to keep your account secure</p>
@@ -223,10 +220,10 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
           <form onSubmit={handlePasswordChange} className="settings-form">
             <div className="form-group">
               <label htmlFor="settings-cur-pw">Current Password</label>
-              <input 
+              <input
                 id="settings-cur-pw"
-                type="password" 
-                value={currentPassword} 
+                type="password"
+                value={currentPassword}
                 onChange={e => setCurrentPassword(e.target.value)}
                 placeholder="Enter current password"
               />
@@ -234,20 +231,20 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
             <div className="settings-form-row">
               <div className="form-group">
                 <label htmlFor="settings-new-pw">New Password</label>
-                <input 
+                <input
                   id="settings-new-pw"
-                  type="password" 
-                  value={newPassword} 
+                  type="password"
+                  value={newPassword}
                   onChange={e => setNewPassword(e.target.value)}
                   placeholder="Min 6 characters"
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="settings-confirm-pw">Confirm New Password</label>
-                <input 
+                <input
                   id="settings-confirm-pw"
-                  type="password" 
-                  value={confirmPassword} 
+                  type="password"
+                  value={confirmPassword}
                   onChange={e => setConfirmPassword(e.target.value)}
                   placeholder="Re-enter new password"
                 />
@@ -265,11 +262,6 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
       {/* ── Danger Zone ── */}
       <div className="settings-card settings-card--danger">
         <div className="settings-card-header">
-          <div className="settings-card-icon danger-icon">!</div>
-          <div>
-            <h3>Danger Zone</h3>
-            <p className="settings-card-desc">Irreversible actions — proceed with caution</p>
-          </div>
         </div>
         <div className="settings-card-body">
           <div className="danger-zone-row">
@@ -298,10 +290,10 @@ export default function Settings({ user, setUser, setToken, onLogout }) {
               </div>
               <div className="form-group">
                 <label htmlFor="delete-pw">Enter your password to confirm</label>
-                <input 
+                <input
                   id="delete-pw"
-                  type="password" 
-                  value={deletePassword} 
+                  type="password"
+                  value={deletePassword}
                   onChange={e => setDeletePassword(e.target.value)}
                   placeholder="Your password"
                   autoFocus

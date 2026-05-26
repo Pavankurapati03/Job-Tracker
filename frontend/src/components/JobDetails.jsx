@@ -88,7 +88,7 @@ export default function JobDetails({ job, onClose, onEdit, onDeleteEvent }) {
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                             <span style={{ fontWeight: '700' }}>{evt.type}</span>
                             <span style={{ fontSize: '0.78rem', opacity: 0.8 }}>
-                              📅 {evt.date} {evt.time ? `at ${evt.time}` : ''}
+                              {evt.date} {evt.time ? `at ${evt.time}` : ''}
                             </span>
                           </div>
                           {evt.note && (

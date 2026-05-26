@@ -194,7 +194,6 @@ export default function App() {
         fontFamily: "'Inter', sans-serif",
       }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎯</div>
           <div style={{ fontWeight: '600', fontSize: '0.95rem', color: '#64748b' }}>Loading JobTracker...</div>
         </div>
       </div>
