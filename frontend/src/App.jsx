@@ -203,10 +203,13 @@ export default function App() {
   // Auth Protection Route (If not logged in, block other views and redirect to login)
   if (!token) {
     return (
-      <Routes>
-        <Route path="/login" element={<AuthView onAuthSuccess={handleAuthSuccess} />} />
-        <Route path="*" element={<Navigate to="/login" />} />
-      </Routes>
+      <ToastProvider>
+        <Routes>
+          <Route path="/login" element={<AuthView onAuthSuccess={handleAuthSuccess} />} />
+          <Route path="*" element={<Navigate to="/login" />} />
+        </Routes>
+        <ToastContainer />
+      </ToastProvider>
     )
   }
 

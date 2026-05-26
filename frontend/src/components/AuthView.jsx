@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import logo from '../assets/logo.png'
+import { useToast } from '../context/ToastContext'
 
 export default function AuthView({ onAuthSuccess }) {
+  const { success } = useToast()
   const [isLogin, setIsLogin] = useState(true)
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -45,9 +47,11 @@ export default function AuthView({ onAuthSuccess }) {
         onAuthSuccess(token)
       } else {
         const { registerUser } = await import('../api/jobsApi')
-        const res = await registerUser({ username, email, password })
-        const token = res.data.access_token
-        onAuthSuccess(token)
+        await registerUser({ username, email, password })
+        success('Registration successful! Please login with your credentials.', 6000)
+        setIsLogin(true)
+        setPassword('')
+        setConfirmPassword('')
       }
     } catch (err) {
       console.error(err)
