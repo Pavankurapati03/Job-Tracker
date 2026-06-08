@@ -1,4 +1,4 @@
-# Job Tracker 🎯
+# Job Tracker
 
 A full-stack job application tracker built with **React + Vite** (frontend) and **FastAPI** (backend).
 
